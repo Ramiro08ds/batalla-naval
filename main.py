@@ -87,8 +87,8 @@ print(board)
 while True:
     cords_str: str = input("Coords(x, y): ")
     x: int = int(cords_str[0])
-    y: int = int(cords_stif shots == 0:
-        break
+    y: int = int(cords_str[2])
+    break
 
 hits = 0
 misses = 0
@@ -134,12 +134,4 @@ print("¡Se acabaron los disparos!")
 print(f"Disparos acertados: {hits}")
 print(f"Disparos fallados: {misses}")
 print("Tablero final:")
-print(board)r[2])
-    board.fire(x, y)
-    system('clear')
-    print(board)
-    shots -= 1
-    
-    
-    
-    
+print(board)(r[2])
