@@ -1,4 +1,4 @@
-#!/bin/env python3
+
 from random import randrange
 from enum import Enum
 # Para comando de 'clear' y 'cls'
@@ -87,8 +87,59 @@ print(board)
 while True:
     cords_str: str = input("Coords(x, y): ")
     x: int = int(cords_str[0])
-    y: int = int(cords_str[2])
+    y: int = int(cords_stif shots == 0:
+        break
+
+hits = 0
+misses = 0
+
+while shots > 0:
+    cords_str: str = input(f"Coords(x, y) (quedan {shots} disparos): ")
+
+    if len(cords_str) != 5 or cords_str[1] != ',':
+        print("Coordenadas inválidas. Deben tener el formato 'x,y'.")
+        continue
+
+    try:
+        x = int(cords_str[0])
+        y = int(cords_str[2])
+    except ValueError:
+        print("Coordenadas inválidas. Asegúrate de ingresar números.")
+        continue
+
+    if not (0 <= x < SIZE and 0 <= y < SIZE):
+        print(f"Coordenadas fuera de los límites del tablero ({SIZE}x{SIZE}). Intenta de nuevo.")
+        continue
+
+    resultado = board.fire(x, y)
+
+    if resultado.value == 3:
+        print("¡Acertaste!")
+        hits += 1
+    elif resultado.value == 2:
+        print("Fallaste.")
+        misses += 1
+    else:
+        print("Ya habías disparado ahí.")
+
+    shots -= 1
+    print(f"Te quedan {shots} disparos.")
+    
+    input("Presioná Enter para continuar...")
+
+    system('clear')
+    print(board)
+
+print("¡Se acabaron los disparos!")
+print(f"Disparos acertados: {hits}")
+print(f"Disparos fallados: {misses}")
+print("Tablero final:")
+print(board)r[2])
     board.fire(x, y)
     system('clear')
     print(board)
     shots -= 1
+    
+    
+    
+    
