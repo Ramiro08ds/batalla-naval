@@ -1,4 +1,3 @@
-
 from random import randrange
 from enum import Enum
 # Para comando de 'clear' y 'cls'
@@ -78,7 +77,8 @@ class Board:
         elif self.board[y][x] == Square.SHIP:
          self.board[y][x] = Square.HIT
          return self.board[y][x]
-
+        return self.board[y][x]
+    
     board: list[list[Square]]
 
 
@@ -132,3 +132,4 @@ print(f"Disparos acertados: {hits}")
 print(f"Disparos fallados: {misses}")
 print("Tablero final:")
 print(board)
+
