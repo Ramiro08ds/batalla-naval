@@ -72,8 +72,12 @@ class Board:
 
     def fire(self, x: int, y: int) -> Square:
         '''Dispara a la casilla y retorna el resultado'''
-        self.board[y][x] = self.board[y][x].add(2)
-        return self.board[y][x]
+        if self.board[y][x] == Square.EMPTY or self.board[y][x] == Square.SHIP:
+         if self.board[y][x] == Square.EMPTY:
+          self.board[y][x] = Square.MISS
+        elif self.board[y][x] == Square.SHIP:
+         self.board[y][x] = Square.HIT
+         return self.board[y][x]
 
     board: list[list[Square]]
 
@@ -84,19 +88,13 @@ board: Board = Board(SIZE, SIZE, total_ships)
 
 print(board)
 
-while True:
-    cords_str: str = input("Coords(x, y): ")
-    x: int = int(cords_str[0])
-    y: int = int(cords_str[2])
-    break
-
 hits = 0
 misses = 0
 
 while shots > 0:
     cords_str: str = input(f"Coords(x, y) (quedan {shots} disparos): ")
 
-    if len(cords_str) != 5 or cords_str[1] != ',':
+    if len(cords_str) != 3 or cords_str[1] != ',':
         print("Coordenadas inválidas. Deben tener el formato 'x,y'.")
         continue
 
@@ -126,7 +124,6 @@ while shots > 0:
     print(f"Te quedan {shots} disparos.")
     
     input("Presioná Enter para continuar...")
-
     system('clear')
     print(board)
 
@@ -134,4 +131,4 @@ print("¡Se acabaron los disparos!")
 print(f"Disparos acertados: {hits}")
 print(f"Disparos fallados: {misses}")
 print("Tablero final:")
-print(board)(r[2])
+print(board)
